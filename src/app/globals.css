@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+.searchInput{
+  background-image:url("https://icons.veryicon.com/png/128/miscellaneous/easemob-icon/search-934.png");
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  background-position: 10px;
+  padding:10px 50px;
+}
+
+.searchInput:focus{
+outline: none;
+}
+body {
+ /* background-color: #12181c; */
+ background-color: #12181c;
+}
+.chatsection{
+  background-image: url("https://wallpapercave.com/wp/wp9983538.jpg");
+  background-repeat: no-repeat;
+background-size: 100%;
+opacity: 100%;
+}
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
