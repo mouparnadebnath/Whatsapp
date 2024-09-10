@@ -29,19 +29,16 @@ const userSchema = new mongoose.Schema({
   friendList: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      // ref: User,
     },
   ],
   friend_request_sent: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      // ref: User,
     },
   ],
   friend_request_received: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      // ref: User,
     },
   ],
   blocked_users: [

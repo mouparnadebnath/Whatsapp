@@ -11,7 +11,6 @@ const userlogin=async(data)=>{
       headers:{"content-type":"application/json"},
       body:JSON.stringify(data)
     })
-    console.log(res)
     return res.json()
 
   } catch (error) {

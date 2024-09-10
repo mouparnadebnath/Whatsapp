@@ -17,15 +17,18 @@ export async function POST(req, { params }) {
     });
     if (existingReq) return Response.json({message:"already sent request before",data:{_id:friend._id,name:friend.name,username:friend.userName,email:friend.email,profilePic:friend.profilePic},status:200});
     if (existingfriend) return Response.json("Already friends");
-    if (user && !existingfriend && !existingReq)
-      await user.friend_request_sent.push({ _id: friend._id,name: friend.email,userName:friend.userName,profilepic:friend.profilePic});
-    await friend.friend_request_received.push({_id:user._id,name: user.email,userName:user.userName,profilepic:user.profilePic});
+    if (user && !existingfriend && !existingReq){
+      const friendobj={_id: friend._id,name:friend.name,username:friend.userName,email:friend.email,profilePic:friend.profilePic}
+      const userobj={_id:user._id,name: user.name,userName:user.userName,profilepic:user.profilePic,email:user.email}
+      await user.friend_request_sent.push(friendobj);
+    await friend.friend_request_received.push(userobj);
     await user.save();
     await friend.save();
+    }
 
     const jsonodj = {
       status: 200,
-      data: friend,
+      data: {_id: friend._id,name:friend.name,username:friend.userName,email:friend.email,profilePic:friend.profilePic},
     };
     return Response.json(jsonodj);
   } catch (error) {
